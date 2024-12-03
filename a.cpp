@@ -73,47 +73,47 @@ Detailspair.cpp In function std vector int findMatchingPairs const std vector st
 
 
 
-#include <iostream>
-#include <vector>
-using namespace std;
+// #include <iostream>
+// #include <vector>
+// using namespace std;
 
-int main() {
-    int n;
-    cin >> n;
+// int main() {
+//     int n;
+//     cin >> n;
 
-    vector<int> ids(n), costs(n);
-    for (int i = 0; i < n; i++) cin >> ids[i];
-    for (int i = 0; i < n; i++) cin >> costs[i];
+//     vector<int> ids(n), costs(n);
+//     for (int i = 0; i < n; i++) cin >> ids[i];
+//     for (int i = 0; i < n; i++) cin >> costs[i];
 
-    int budget;
-    cin >> budget;
+//     int budget;
+//     cin >> budget;
 
-    int mfi = 0, mfw = 0; // Maximum friendliness index and friendliness weight
+//     int mfi = 0, mfw = 0; // Maximum friendliness index and friendliness weight
 
-    for (int i = 0; i < n; i++) {
-        if (costs[i] <= 0) continue; // Skip if the cost is invalid (to avoid division by zero)
-        int buyCost = costs[i];
-        int maxQty = budget / buyCost; // Maximum quantity we can buy with the budget
+//     for (int i = 0; i < n; i++) {
+//         if (costs[i] <= 0) continue; // Skip if the cost is invalid (to avoid division by zero)
+//         int buyCost = costs[i];
+//         int maxQty = budget / buyCost; // Maximum quantity we can buy with the budget
 
-        if (maxQty > 0) {
-            int cfi = 0; // Current friendliness index
-            int cfw = 0; // Current friendliness weight
+//         if (maxQty > 0) {
+//             int cfi = 0; // Current friendliness index
+//             int cfw = 0; // Current friendliness weight
 
-            for (int j = 0; j < n; j++) {
-                if (i != j && ids[i] % ids[j] == 0) {
-                    cfi += maxQty; // Increment friendliness index
-                    cfw += costs[j] * maxQty; // Increment friendliness weight
-                }
-            }
+//             for (int j = 0; j < n; j++) {
+//                 if (i != j && ids[i] % ids[j] == 0) {
+//                     cfi += maxQty; // Increment friendliness index
+//                     cfw += costs[j] * maxQty; // Increment friendliness weight
+//                 }
+//             }
 
-            // Update maximum friendliness index and weight
-            if (cfi > mfi || (cfi == mfi && cfw > mfw)) {
-                mfi = cfi;
-                mfw = cfw;
-            }
-        }
-    }
+//             // Update maximum friendliness index and weight
+//             if (cfi > mfi || (cfi == mfi && cfw > mfw)) {
+//                 mfi = cfi;
+//                 mfw = cfw;
+//             }
+//         }
+//     }
 
-    cout << mfi << " " << mfw << endl;
-    return 0;
-}
+//     cout << mfi << " " << mfw << endl;
+//     return 0;
+// }
